@@ -14,7 +14,7 @@ use Symfony\Component\Scheduler\Attribute\AsPeriodicTask;
     name: 'schedule',
     description: 'Creates a file and add 1 to its content. Test periodic task',
 )]
-#[AsPeriodicTask(frequency: 60)]
+#[AsPeriodicTask(frequency: 20)]
 class ScheduleCommand extends Command
 {
     private string $folder;
