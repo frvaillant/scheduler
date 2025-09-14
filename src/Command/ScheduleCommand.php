@@ -33,6 +33,9 @@ class ScheduleCommand extends Command
         }
 
         $this->commandService->execute(self::FILENAME);
+
+        $this->release();
+
         return Command::SUCCESS;
     }
 }
