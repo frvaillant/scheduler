@@ -11,15 +11,15 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Scheduler\Attribute\AsPeriodicTask;
 
 #[AsCommand(
-    name: 'schedule',
+    name: 'scheduler',
     description: 'Creates a file and add 1 to its content. Test periodic task',
 )]
 #[AsPeriodicTask(frequency: 20)]
-class ScheduleCommand extends Command
+class SchedulerCommand extends Command
 {
     private string $folder;
 
-    const string FILENAME = 'index.json';
+    const string FILENAME = 'index2.json';
 
     public function __construct(KernelInterface $kernel)
     {
