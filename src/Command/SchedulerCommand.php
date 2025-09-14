@@ -17,8 +17,6 @@ use Symfony\Component\Scheduler\Attribute\AsPeriodicTask;
 #[AsPeriodicTask(frequency: 20)]
 class SchedulerCommand extends Command
 {
-
-    use LockableTrait;
     const string FILENAME = 'index2.txt';
 
     public function __construct(private readonly SchedulerTestCommandService $commandService)
@@ -28,14 +26,7 @@ class SchedulerCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
-        if (!$this->lock()) {
-            return Command::SUCCESS;
-        }
-
         $this->commandService->execute(self::FILENAME);
-
-        $this->release();
 
         return Command::SUCCESS;
     }
